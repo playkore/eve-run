@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjfdkmo5vxkom"]
+
+[ext_resource type="Texture2D" uid="uid://h6tv1qcg6n18" path="res://assets/guy-spritesheet.png" id="1_kfsw8"]
+
+[node name="bone-animation-test" type="Node2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="TorsoBone2D" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(708, 255)
+rest = Transform2D(1, 0, 0, 1, 708, 255)
+
+[node name="Torso" type="Sprite2D" parent="Skeleton2D/TorsoBone2D"]
+z_index = 1
+texture = ExtResource("1_kfsw8")
+region_enabled = true
+region_rect = Rect2(564, 183.25, 178, 225.5)
+
+[node name="right-handBone2D" type="Bone2D" parent="Skeleton2D/TorsoBone2D"]
+position = Vector2(-72, 24)
+rest = Transform2D(1, 0, 0, 1, -72, 24)
+
+[node name="right-hand" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/right-handBone2D"]
+z_index = -1
+texture = ExtResource("1_kfsw8")
+region_enabled = true
+region_rect = Rect2(30.454567, 227.78288, 78.13678, 225.77022)
+
+[node name="left-legBone2D" type="Bone2D" parent="Skeleton2D/TorsoBone2D"]
+position = Vector2(10, 256)
+rest = Transform2D(1, 0, 0, 1, 10, 256)
+
+[node name="left-leg" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/left-legBone2D"]
+z_index = -1
+texture = ExtResource("1_kfsw8")
+region_enabled = true
+region_rect = Rect2(394.3004, 484.3996, 131.45013, 289.85028)
+
+[node name="right-legBone2D" type="Bone2D" parent="Skeleton2D/TorsoBone2D"]
+position = Vector2(-35, 256)
+rest = Transform2D(1, 0, 0, 1, -35, 256)
+
+[node name="right-leg" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/right-legBone2D"]
+z_index = -1
+texture = ExtResource("1_kfsw8")
+region_enabled = true
+region_rect = Rect2(394.3004, 484.3996, 131.45013, 289.85028)
+
+[node name="HeadBone2D" type="Bone2D" parent="Skeleton2D/TorsoBone2D"]
+position = Vector2(-12, -192)
+rest = Transform2D(1, 0, 0, 1, -12, -192)
+
+[node name="Head" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/HeadBone2D"]
+texture = ExtResource("1_kfsw8")
+region_enabled = true
+region_rect = Rect2(402.42767, 26.144743, 157.0263, 165.75006)
+
+[node name="left-handBone2D" type="Bone2D" parent="Skeleton2D/TorsoBone2D"]
+position = Vector2(68, 28)
+rest = Transform2D(1, 0, 0, 1, 68, 28)
+
+[node name="left-hand" type="Sprite2D" parent="Skeleton2D/TorsoBone2D/left-handBone2D"]
+texture = ExtResource("1_kfsw8")
+region_enabled = true
+region_rect = Rect2(176.90234, 217.39232, 83.66919, 236.66426)
