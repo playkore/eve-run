@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var move_speed := 1500.0
+@export var move_speed := 200.0
 
 # Scaling parameters based on the JSON specification
 const HORIZON_Y := 960.0  # 50% of 1920
