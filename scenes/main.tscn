@@ -1,11 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn16txdwtnt5p"]
+[gd_scene load_steps=6 format=3 uid="uid://dn16txdwtnt5p"]
 
 [ext_resource type="Script" uid="uid://d1phdnv8ydmny" path="res://scripts/main.gd" id="1_ytvwh"]
 [ext_resource type="PackedScene" uid="uid://bjfdkmo5vxkom" path="res://scenes/boy.tscn" id="2_j2uf7"]
+[ext_resource type="Texture2D" uid="uid://cgcayplnuf308" path="res://assets/scene001-background.png" id="3_bg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_main"]
+vertices = PackedVector2Array(54, 1824, 1026, 1824, 864, 1248, 648, 1056, 594, 1056, 486, 1056, 432, 1056, 216, 1248, 518.4, 1056, 561.6, 1056, 572.4, 960, 507.6, 960)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(54, 1824, 216, 1248, 432, 1056, 486, 1056, 507.6, 960, 518.4, 1056, 594, 1056, 648, 1056, 864, 1248, 1026, 1824), PackedVector2Array(518.4, 1056, 507.6, 960, 572.4, 960, 561.6, 1056)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_well"]
+radius = 86.4
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ytvwh")
 
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(540, 960)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("3_bg")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_main")
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="StoneWell" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(324, 1440)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/StoneWell"]
+shape = SubResource("CircleShape2D_well")
+
+[node name="FruitStand" type="StaticBody2D" parent="Obstacles"]
+position = Vector2(810, 1248)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacles/FruitStand"]
+polygon = PackedVector2Array(0, -96, 248.4, -96, 248.4, 96, 0, 96)
+
 [node name="Boy" parent="." instance=ExtResource("2_j2uf7")]
-position = Vector2(568, 228)
+position = Vector2(540, 1700)
 scale = Vector2(0.5, 0.5)
