@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh3s1vh1clpov"]
+
+[ext_resource type="Script" uid="uid://dl1g0sgxpulsr" path="res://scripts/eve_playground.gd" id="1_86gdv"]
+[ext_resource type="PackedScene" uid="uid://c4xsptmonp7u" path="res://scenes/eve.tscn" id="1_g7lod"]
+
+[node name="EvePlayground" type="Node2D"]
+script = ExtResource("1_86gdv")
+
+[node name="Eve" parent="." instance=ExtResource("1_g7lod")]
+position = Vector2(364, 367)

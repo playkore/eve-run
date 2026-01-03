@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcayplnuf308"
-path="res://.godot/imported/scene001-background.png-9be4f384c724a252eba3307ae998150c.ctex"
+uid="uid://bul3fen8ly00c"
+path="res://.godot/imported/eve-top-down.png-eff6980a51288bd47f1cb0ea90bb45c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/scene001-background.png"
-dest_files=["res://.godot/imported/scene001-background.png-9be4f384c724a252eba3307ae998150c.ctex"]
+source_file="res://assets/eve-top-down.png"
+dest_files=["res://.godot/imported/eve-top-down.png-eff6980a51288bd47f1cb0ea90bb45c4.ctex"]
 
 [params]
 

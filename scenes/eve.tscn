@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4xsptmonp7u"]
+
+[ext_resource type="Texture2D" uid="uid://bul3fen8ly00c" path="res://assets/eve-top-down.png" id="1_8snfq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8snfq"]
+radius = 35.69314
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr3t3"]
+atlas = ExtResource("1_8snfq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfl72"]
+atlas = ExtResource("1_8snfq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y7q7"]
+atlas = ExtResource("1_8snfq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuijg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr3t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfl72")
+}],
+"loop": true,
+"name": &"running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y7q7")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}]
+
+[node name="Eve" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_8snfq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nuijg")
+animation = &"running"
+frame_progress = 0.268315
