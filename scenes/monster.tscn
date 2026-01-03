@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvmsv5tkjs30e"]
+[gd_scene load_steps=15 format=3 uid="uid://bvmsv5tkjs30e"]
 
 [ext_resource type="Texture2D" uid="uid://70f7xcjlmgew" path="res://assets/monster.png" id="1_uwnm8"]
 [ext_resource type="Script" path="res://scripts/monster.gd" id="2_mn3r7"]
@@ -43,6 +43,9 @@ region = Rect2(768, 0, 256, 256)
 atlas = ExtResource("1_uwnm8")
 region = Rect2(1024, 0, 256, 256)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3k7ef"]
+radius = 28.0
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ei7v0"]
 animations = [{
 "frames": [{
@@ -83,6 +86,11 @@ animations = [{
 
 [node name="Monster" type="Node2D"]
 script = ExtResource("2_mn3r7")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_3k7ef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ei7v0")
