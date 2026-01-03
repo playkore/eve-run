@@ -1,31 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4xsptmonp7u"]
+[gd_scene load_steps=9 format=3 uid="uid://c4xsptmonp7u"]
 
-[ext_resource type="Texture2D" uid="uid://bul3fen8ly00c" path="res://assets/eve-top-down.png" id="1_8snfq"]
-[ext_resource type="Script" path="res://scripts/eve.gd" id="2_6ghmy"]
+[ext_resource type="Script" uid="uid://b3yniy51snrh4" path="res://scripts/eve.gd" id="2_6ghmy"]
+[ext_resource type="Texture2D" uid="uid://bqi7ecsyflfts" path="res://assets/eve2.png" id="2_jr3t3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8snfq"]
 radius = 35.69314
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jr3t3"]
-atlas = ExtResource("1_8snfq")
-region = Rect2(128, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfl72"]
-atlas = ExtResource("1_8snfq")
-region = Rect2(256, 0, 128, 128)
+atlas = ExtResource("2_jr3t3")
+region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2y7q7"]
-atlas = ExtResource("1_8snfq")
-region = Rect2(0, 0, 128, 128)
+atlas = ExtResource("2_jr3t3")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuijg"]
+atlas = ExtResource("2_jr3t3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a64qf"]
+atlas = ExtResource("2_jr3t3")
+region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nuijg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jr3t3")
+"texture": SubResource("AtlasTexture_yfl72")
+}],
+"loop": true,
+"name": &"boost",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y7q7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yfl72")
+"texture": SubResource("AtlasTexture_nuijg")
 }],
 "loop": true,
 "name": &"running",
@@ -33,7 +45,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2y7q7")
+"texture": SubResource("AtlasTexture_a64qf")
 }],
 "loop": true,
 "name": &"standing",
@@ -49,6 +61,6 @@ script = ExtResource("2_6ghmy")
 shape = SubResource("CircleShape2D_8snfq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_nuijg")
-animation = &"running"
-frame_progress = 0.268315
+animation = &"standing"
