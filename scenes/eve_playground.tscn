@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh3s1vh1clpov"]
+[gd_scene load_steps=4 format=3 uid="uid://dh3s1vh1clpov"]
 
 [ext_resource type="Script" uid="uid://dl1g0sgxpulsr" path="res://scripts/eve_playground.gd" id="1_86gdv"]
 [ext_resource type="PackedScene" uid="uid://c4xsptmonp7u" path="res://scenes/eve.tscn" id="1_g7lod"]
+[ext_resource type="PackedScene" path="res://scenes/virtual_joystick.tscn" id="2_74kg5"]
 
 [node name="EvePlayground" type="Node2D"]
 script = ExtResource("1_86gdv")
 
 [node name="Eve" parent="." instance=ExtResource("1_g7lod")]
 position = Vector2(364, 367)
+
+[node name="VirtualJoystick" parent="." instance=ExtResource("2_74kg5")]
