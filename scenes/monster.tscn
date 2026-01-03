@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvmsv5tkjs30e"]
+[gd_scene load_steps=14 format=3 uid="uid://bvmsv5tkjs30e"]
 
 [ext_resource type="Texture2D" uid="uid://70f7xcjlmgew" path="res://assets/monster.png" id="1_uwnm8"]
+[ext_resource type="Script" path="res://scripts/monster.gd" id="2_mn3r7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cbnp"]
 atlas = ExtResource("1_uwnm8")
@@ -81,6 +82,7 @@ animations = [{
 }]
 
 [node name="Monster" type="Node2D"]
+script = ExtResource("2_mn3r7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ei7v0")

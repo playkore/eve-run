@@ -34,3 +34,4 @@ position = Vector2(233, 200)
 
 [node name="Monster" parent="." instance=ExtResource("7_f2ir1")]
 position = Vector2(200, 779)
+target_path = NodePath("../Eve/CharacterBody2D")
