@@ -36,8 +36,10 @@ func _physics_process(delta: float) -> void:
 		if direction.x != 0.0:
 			boy.scale.x = abs(boy.scale.x) * (-1.0 if direction.x > 0.0 else 1.0)
 
-		# Calculate desired velocity
-		var desired_velocity = direction * move_speed
+		# Scale speed by depth so distant characters move proportionally slower.
+		var scale_value = _compute_depth_scale(boy.position.y)
+		var speed_scale = scale_value / MAX_SCALE
+		var desired_velocity = direction * move_speed * speed_scale
 
 		# Use navigation agent's avoidance
 		navigation_agent.velocity = desired_velocity
@@ -57,10 +59,13 @@ func _physics_process(delta: float) -> void:
 func _on_velocity_computed(safe_velocity: Vector2) -> void:
 	boy.global_position += safe_velocity * get_physics_process_delta_time()
 
+func _compute_depth_scale(y_pos: float) -> float:
+	var depth_ratio = clamp((y_pos - MIN_Y) / (MAX_Y - MIN_Y), 0.0, 1.0)
+	return lerp(MIN_SCALE, MAX_SCALE, depth_ratio)
+
 func _update_character_scale() -> void:
 	# Calculate scale based on Y position (depth)
-	var depth_ratio = clamp((boy.position.y - MIN_Y) / (MAX_Y - MIN_Y), 0.0, 1.0)
-	var scale_value = lerp(MIN_SCALE, MAX_SCALE, depth_ratio)
+	var scale_value = _compute_depth_scale(boy.position.y)
 
 	# Preserve the sign of scale.x for flipping
 	var sign_x = sign(boy.scale.x)
