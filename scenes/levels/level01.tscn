@@ -1,21 +1,32 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx8p5y3ibcxom"]
 
-[ext_resource type="Texture2D" uid="uid://0mk5xlje221c" path="res://assets/levels/level01-medow.png" id="1_6l0m3"]
-[ext_resource type="Script" uid="uid://b661mt3d18sy5" path="res://scripts/level_bounds.gd" id="2_h1brf"]
-[ext_resource type="PackedScene" uid="uid://c4xsptmonp7u" path="res://scenes/eve.tscn" id="3_2q7kp"]
+[ext_resource type="PackedScene" uid="uid://43tl3log70nc" path="res://scenes/level_template.tscn" id="1_cqs2m"]
+[ext_resource type="Texture2D" uid="uid://0mk5xlje221c" path="res://assets/levels/level01-medow.png" id="2_6l0m3"]
+[ext_resource type="Script" uid="uid://b661mt3d18sy5" path="res://scripts/level_bounds.gd" id="3_h1brf"]
 
-[node name="Level01" type="Node2D"]
+[node name="Level01" instance=ExtResource("1_cqs2m")]
 
-[node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_6l0m3")
+[node name="Background" type="Sprite2D" parent="." index="0"]
+position = Vector2(-250, -345)
+scale = Vector2(2, 2)
+texture = ExtResource("2_6l0m3")
 centered = false
 
-[node name="LevelBounds" type="StaticBody2D" parent="."]
-script = ExtResource("2_h1brf")
+[node name="Eve" parent="." index="2"]
+position = Vector2(290, 291)
+
+[node name="MonsterSpawn" parent="." index="3"]
+position = Vector2(384, 819)
+
+[node name="LevelBounds" type="StaticBody2D" parent="." index="6"]
+visible = false
+script = ExtResource("3_h1brf")
 background_path = NodePath("../Background")
 polygon_path = NodePath("CollisionPolygon2D")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBounds"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBounds" index="0"]
+visible = false
+disabled = true
 
-[node name="Eve" parent="." instance=ExtResource("3_2q7kp")]
-position = Vector2(264, 265)
+[node name="Pillar" parent="GameObjects" index="2"]
+position = Vector2(219, 81)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh3s1vh1clpov"]
+[gd_scene load_steps=10 format=3 uid="uid://43tl3log70nc"]
 
-[ext_resource type="Script" uid="uid://dl1g0sgxpulsr" path="res://scripts/eve_playground.gd" id="1_86gdv"]
+[ext_resource type="Script" path="res://scripts/eve_playground.gd" id="1_86gdv"]
 [ext_resource type="PackedScene" uid="uid://c4xsptmonp7u" path="res://scenes/eve.tscn" id="1_g7lod"]
 [ext_resource type="PackedScene" path="res://scenes/virtual_joystick.tscn" id="2_74kg5"]
 [ext_resource type="PackedScene" uid="uid://7mkj7yehqvvy" path="res://scenes/monster_spawn.tscn" id="3_04lv6"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="6_0xg8p"]
 [ext_resource type="PackedScene" uid="uid://bvmsv5tkjs30e" path="res://scenes/monster.tscn" id="7_f2ir1"]
 
-[node name="EvePlayground" type="Node2D"]
+[node name="LevelTemplate" type="Node2D"]
 script = ExtResource("1_86gdv")
 
 [node name="GameState" type="Node" parent="."]
@@ -19,8 +19,8 @@ script = ExtResource("5_6l1p2")
 [node name="Eve" parent="." instance=ExtResource("1_g7lod")]
 position = Vector2(364, 367)
 
-[node name="MonsterSpawn" parent="Eve" instance=ExtResource("3_04lv6")]
-position = Vector2(-232.56013, 102.195496)
+[node name="MonsterSpawn" parent="." instance=ExtResource("3_04lv6")]
+position = Vector2(131.43987, 469.1955)
 monster_scene = ExtResource("7_f2ir1")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
@@ -30,15 +30,11 @@ monster_scene = ExtResource("7_f2ir1")
 [node name="HUD" parent="." instance=ExtResource("6_0xg8p")]
 game_state_path = NodePath("../GameState")
 
-[node name="Node" type="Node" parent="."]
+[node name="GameObjects" type="Node" parent="."]
 
-[node name="SpeedBoost" parent="Node" instance=ExtResource("4_68yar")]
+[node name="SpeedBoost" parent="GameObjects" instance=ExtResource("4_68yar")]
 position = Vector2(608, 301)
 boost_distance = 300.0
 
-[node name="Pillar2" parent="Node" instance=ExtResource("4_1cbk5")]
-position = Vector2(892, 553)
-radius = 124.0
-
-[node name="Pillar" parent="Node" instance=ExtResource("4_1cbk5")]
+[node name="Pillar" parent="GameObjects" instance=ExtResource("4_1cbk5")]
 position = Vector2(233, 200)
