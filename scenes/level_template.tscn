@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://43tl3log70nc"]
 
-[ext_resource type="Script" path="res://scripts/eve_playground.gd" id="1_86gdv"]
+[ext_resource type="Script" path="res://scripts/level_template.gd" id="1_86gdv"]
 [ext_resource type="PackedScene" uid="uid://c4xsptmonp7u" path="res://scenes/eve.tscn" id="1_g7lod"]
 [ext_resource type="PackedScene" path="res://scenes/virtual_joystick.tscn" id="2_74kg5"]
 [ext_resource type="PackedScene" uid="uid://7mkj7yehqvvy" path="res://scenes/monster_spawn.tscn" id="3_04lv6"]
