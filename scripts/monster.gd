@@ -10,10 +10,18 @@ extends Node2D
 
 var target: Node2D = null
 var game_state: Node = null
+var rng := RandomNumberGenerator.new()
 
 func _ready() -> void:
+	rng.randomize()
 	if sprite != null:
 		sprite.play("default")
+		var frames = sprite.sprite_frames
+		if frames != null and frames.has_animation("default"):
+			var count = frames.get_frame_count("default")
+			if count > 0:
+				sprite.frame = rng.randi_range(0, count - 1)
+				sprite.frame_progress = rng.randf()
 	if target_path != NodePath():
 		target = get_node_or_null(target_path)
 	if game_state_path != NodePath():
