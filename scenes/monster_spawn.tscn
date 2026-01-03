@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7mkj7yehqvvy"]
+
+[ext_resource type="Texture2D" uid="uid://cyugmi0r6sny8" path="res://assets/monster-spawn.png" id="1_bxwoe"]
+
+[node name="MonsterSpawn" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_bxwoe")

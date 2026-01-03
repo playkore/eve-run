@@ -1,16 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh3s1vh1clpov"]
+[gd_scene load_steps=8 format=3 uid="uid://dh3s1vh1clpov"]
 
 [ext_resource type="Script" uid="uid://dl1g0sgxpulsr" path="res://scripts/eve_playground.gd" id="1_86gdv"]
 [ext_resource type="PackedScene" uid="uid://c4xsptmonp7u" path="res://scenes/eve.tscn" id="1_g7lod"]
 [ext_resource type="PackedScene" path="res://scenes/virtual_joystick.tscn" id="2_74kg5"]
+[ext_resource type="PackedScene" uid="uid://7mkj7yehqvvy" path="res://scenes/monster_spawn.tscn" id="3_04lv6"]
 [ext_resource type="PackedScene" uid="uid://c4glp1vmpt1kj" path="res://scenes/pillar.tscn" id="4_1cbk5"]
 [ext_resource type="PackedScene" uid="uid://rglpruewaxnf" path="res://scenes/speed_boost.tscn" id="4_68yar"]
+[ext_resource type="PackedScene" uid="uid://bvmsv5tkjs30e" path="res://scenes/monster.tscn" id="7_f2ir1"]
 
 [node name="EvePlayground" type="Node2D"]
 script = ExtResource("1_86gdv")
 
 [node name="Eve" parent="." instance=ExtResource("1_g7lod")]
 position = Vector2(364, 367)
+
+[node name="MonsterSpawn" parent="Eve" instance=ExtResource("3_04lv6")]
+position = Vector2(-232.56013, 102.195496)
 
 [node name="VirtualJoystick" parent="." instance=ExtResource("2_74kg5")]
 
@@ -25,3 +30,6 @@ radius = 124.0
 
 [node name="Pillar" parent="Node" instance=ExtResource("4_1cbk5")]
 position = Vector2(233, 200)
+
+[node name="Monster" parent="." instance=ExtResource("7_f2ir1")]
+position = Vector2(200, 779)

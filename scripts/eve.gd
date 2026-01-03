@@ -22,7 +22,8 @@ func set_move_vector(vector: Vector2) -> void:
 
 func _physics_process(delta: float) -> void:
 	var target_velocity = input_vector * move_speed
-	if boost_remaining > 0.0:
+	var is_boosting = boost_remaining > 0.0
+	if is_boosting:
 		target_velocity = boost_direction * boost_speed
 		body.velocity = target_velocity
 	else:
@@ -32,7 +33,10 @@ func _physics_process(delta: float) -> void:
 	if body.velocity.length_squared() > 1.0:
 		# Sprite faces down by default, so add a 90-degree offset.
 		body.rotation = body.velocity.angle() + PI / 2.0
-		if sprite.animation != "running":
+		if is_boosting and sprite.sprite_frames.has_animation("boost"):
+			if sprite.animation != "boost":
+				sprite.play("boost")
+		elif sprite.animation != "running":
 			sprite.play("running")
 	else:
 		body.velocity = Vector2.ZERO
@@ -41,7 +45,7 @@ func _physics_process(delta: float) -> void:
 
 	var previous_position = body.global_position
 	body.move_and_slide()
-	if boost_remaining > 0.0:
+	if is_boosting:
 		var traveled = body.global_position.distance_to(previous_position)
 		boost_remaining = max(boost_remaining - traveled, 0.0)
 
