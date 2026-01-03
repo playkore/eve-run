@@ -21,6 +21,8 @@ position = Vector2(384, 819)
 [node name="LevelBounds" type="StaticBody2D" parent="." index="6"]
 script = ExtResource("3_h1brf")
 background_path = NodePath("../Background")
+polygon_path = NodePath("CollisionPolygon2D")
+camera_path = NodePath("../Eve/CharacterBody2D/Camera2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBounds" index="0"]
 position = Vector2(38, 122)
