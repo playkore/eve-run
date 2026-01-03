@@ -38,10 +38,14 @@ func _physics_process(delta: float) -> void:
 	global_position += to_target.normalized() * move_speed * delta
 
 func _on_body_entered(body: Node) -> void:
-	if not (body is CharacterBody2D):
-		return
-	if game_state != null and game_state.has_method("lose_life"):
-		game_state.lose_life(1)
+	if body is CharacterBody2D:
+		if game_state != null and game_state.has_method("lose_life"):
+			game_state.lose_life(1)
+		_explode()
+	elif body is StaticBody2D:
+		_explode()
+
+func _explode() -> void:
 	if sprite != null:
 		sprite.visible = false
 	if hitbox != null:
