@@ -21,6 +21,8 @@ position = Vector2(364, 367)
 
 [node name="MonsterSpawn" parent="Eve" instance=ExtResource("3_04lv6")]
 position = Vector2(-232.56013, 102.195496)
+spawn_interval = 5.0
+monster_scene = ExtResource("7_f2ir1")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

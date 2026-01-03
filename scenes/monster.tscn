@@ -86,6 +86,8 @@ animations = [{
 }]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w2yfe"]
+emission_shape = 2
+emission_sphere_radius = 1.0
 angle_min = -180.0
 angle_max = 180.0
 spread = 180.0
