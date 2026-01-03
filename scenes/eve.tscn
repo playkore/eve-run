@@ -64,3 +64,8 @@ shape = SubResource("CircleShape2D_8snfq")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_nuijg")
 animation = &"standing"
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+current = true
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0

@@ -23,6 +23,7 @@ position = Vector2(-232.56013, 102.195496)
 
 [node name="SpeedBoost" parent="Node" instance=ExtResource("4_68yar")]
 position = Vector2(608, 301)
+boost_distance = 300.0
 
 [node name="Pillar2" parent="Node" instance=ExtResource("4_1cbk5")]
 position = Vector2(892, 553)
