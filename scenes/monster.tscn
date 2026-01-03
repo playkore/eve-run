@@ -1,7 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bvmsv5tkjs30e"]
+[gd_scene load_steps=17 format=3 uid="uid://bvmsv5tkjs30e"]
 
 [ext_resource type="Texture2D" uid="uid://70f7xcjlmgew" path="res://assets/monster.png" id="1_uwnm8"]
-[ext_resource type="Script" path="res://scripts/monster.gd" id="2_mn3r7"]
+[ext_resource type="Script" uid="uid://dehdivpb8642d" path="res://scripts/monster.gd" id="2_mn3r7"]
+[ext_resource type="Texture2D" uid="uid://keuxosw8tdp" path="res://assets/explosion-particle.png" id="3_3b0pc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3k7ef"]
+radius = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cbnp"]
 atlas = ExtResource("1_uwnm8")
@@ -43,9 +47,6 @@ region = Rect2(768, 0, 256, 256)
 atlas = ExtResource("1_uwnm8")
 region = Rect2(1024, 0, 256, 256)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3k7ef"]
-radius = 28.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ei7v0"]
 animations = [{
 "frames": [{
@@ -84,6 +85,16 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w2yfe"]
+angle_min = -180.0
+angle_max = 180.0
+spread = 180.0
+initial_velocity_min = 160.0
+initial_velocity_max = 260.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_max = 1.2
+
 [node name="Monster" type="Node2D"]
 script = ExtResource("2_mn3r7")
 
@@ -95,3 +106,11 @@ shape = SubResource("CircleShape2D_3k7ef")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ei7v0")
 frame_progress = 0.4593945
+
+[node name="ExplosionParticles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+texture = ExtResource("3_3b0pc")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_w2yfe")

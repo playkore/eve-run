@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $Hitbox
+@onready var explosion_particles: GPUParticles2D = $ExplosionParticles
 
 var target: Node2D = null
 var game_state: Node = null
@@ -33,4 +34,13 @@ func _on_body_entered(body: Node) -> void:
 		return
 	if game_state != null and game_state.has_method("lose_life"):
 		game_state.lose_life(1)
+	if sprite != null:
+		sprite.visible = false
+	if hitbox != null:
+		hitbox.monitoring = false
+	move_speed = 0.0
+	if explosion_particles != null:
+		explosion_particles.restart()
+		explosion_particles.emitting = true
+		await get_tree().create_timer(explosion_particles.lifetime).timeout
 	queue_free()
