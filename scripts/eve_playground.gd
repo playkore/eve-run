@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var eve = $Eve
-@onready var joystick = $VirtualJoystick
+@onready var joystick = $UILayer/VirtualJoystick
 
 func _ready() -> void:
 	pass

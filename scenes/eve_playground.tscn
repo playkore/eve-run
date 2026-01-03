@@ -17,7 +17,9 @@ position = Vector2(364, 367)
 [node name="MonsterSpawn" parent="Eve" instance=ExtResource("3_04lv6")]
 position = Vector2(-232.56013, 102.195496)
 
-[node name="VirtualJoystick" parent="." instance=ExtResource("2_74kg5")]
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="VirtualJoystick" parent="UILayer" instance=ExtResource("2_74kg5")]
 
 [node name="Node" type="Node" parent="."]
 
