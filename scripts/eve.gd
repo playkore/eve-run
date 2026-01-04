@@ -11,9 +11,21 @@ var input_vector := Vector2.ZERO
 var boost_remaining := 0.0
 var boost_speed := 0.0
 var boost_direction := Vector2.ZERO
+var last_direction := "south"
+
+const DIRECTION_NAMES := [
+	"east",
+	"north_east",
+	"north",
+	"north_west",
+	"west",
+	"south_west",
+	"south",
+	"south_east"
+]
 
 func _ready() -> void:
-	sprite.play("standing")
+	sprite.play("idle_%s" % last_direction)
 
 func set_move_vector(vector: Vector2) -> void:
 	input_vector = vector
@@ -31,17 +43,10 @@ func _physics_process(delta: float) -> void:
 		body.velocity = body.velocity.move_toward(target_velocity, rate * delta)
 
 	if body.velocity.length_squared() > 1.0:
-		# Sprite faces down by default, so add a 90-degree offset.
-		body.rotation = body.velocity.angle() + PI / 2.0
-		if is_boosting and sprite.sprite_frames.has_animation("boost"):
-			if sprite.animation != "boost":
-				sprite.play("boost")
-		elif sprite.animation != "running":
-			sprite.play("running")
+		_update_animation(true, body.velocity, is_boosting)
 	else:
 		body.velocity = Vector2.ZERO
-		if sprite.animation != "standing":
-			sprite.play("standing")
+		_update_animation(false, input_vector, is_boosting)
 
 	var previous_position = body.global_position
 	body.move_and_slide()
@@ -58,3 +63,17 @@ func apply_speed_boost(distance: float, speed: float) -> void:
 	boost_direction = direction
 	boost_remaining = distance
 	boost_speed = speed
+
+func _update_animation(is_moving: bool, direction: Vector2, is_boosting: bool) -> void:
+	if direction.length_squared() > 0.0:
+		last_direction = _direction_from_vector(direction)
+	var anim = "idle_%s" % last_direction
+	if is_moving and not is_boosting:
+		anim = "run_%s" % last_direction
+	if sprite.animation != anim:
+		sprite.play(anim)
+
+func _direction_from_vector(vec: Vector2) -> String:
+	var angle = fposmod(vec.angle(), TAU)
+	var index = int(round(angle / (TAU / 8.0))) % 8
+	return DIRECTION_NAMES[index]

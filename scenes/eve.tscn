@@ -1,59 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4xsptmonp7u"]
+[gd_scene load_steps=4 format=3 uid="uid://c4xsptmonp7u"]
 
-[ext_resource type="Script" uid="uid://b3yniy51snrh4" path="res://scripts/eve.gd" id="2_6ghmy"]
-[ext_resource type="Texture2D" uid="uid://bqi7ecsyflfts" path="res://assets/eve2.png" id="2_jr3t3"]
+[ext_resource type="Script" uid="uid://b3yniy51snrh4" path="res://scripts/eve.gd" id="1_m0q0u"]
+[ext_resource type="SpriteFrames" path="res://assets/eve/eve_frames.tres" id="2_5r3fr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8snfq"]
-radius = 35.69314
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yfl72"]
-atlas = ExtResource("2_jr3t3")
-region = Rect2(768, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2y7q7"]
-atlas = ExtResource("2_jr3t3")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuijg"]
-atlas = ExtResource("2_jr3t3")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a64qf"]
-atlas = ExtResource("2_jr3t3")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nuijg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yfl72")
-}],
-"loop": true,
-"name": &"boost",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2y7q7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nuijg")
-}],
-"loop": true,
-"name": &"running",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a64qf")
-}],
-"loop": true,
-"name": &"standing",
-"speed": 5.0
-}]
+radius = 8.062258
 
 [node name="Eve" type="Node2D"]
-script = ExtResource("2_6ghmy")
+script = ExtResource("1_m0q0u")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
@@ -62,10 +16,9 @@ shape = SubResource("CircleShape2D_8snfq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_nuijg")
-animation = &"standing"
+sprite_frames = ExtResource("2_5r3fr")
+animation = &"idle_south"
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-current = true
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqi7ecsyflfts"
-path="res://.godot/imported/eve2.png-97691ad36b6afe1e21f9061ae875657c.ctex"
+uid="uid://62wfhn4ekc5c"
+path="res://.godot/imported/north-west.png-dba32af12cc469847ac4ceb72b53fba1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/eve2.png"
-dest_files=["res://.godot/imported/eve2.png-97691ad36b6afe1e21f9061ae875657c.ctex"]
+source_file="res://assets/eve/rotations/north-west.png"
+dest_files=["res://.godot/imported/north-west.png-dba32af12cc469847ac4ceb72b53fba1.ctex"]
 
 [params]
 
