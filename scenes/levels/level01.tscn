@@ -1,32 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://cx8p5y3ibcxom"]
+[gd_scene load_steps=8 format=3 uid="uid://cx8p5y3ibcxom"]
 
 [ext_resource type="PackedScene" uid="uid://43tl3log70nc" path="res://scenes/level_template.tscn" id="1_cqs2m"]
 [ext_resource type="Texture2D" uid="uid://0mk5xlje221c" path="res://assets/levels/level01-medow.png" id="2_6l0m3"]
 [ext_resource type="Script" uid="uid://b661mt3d18sy5" path="res://scripts/level_bounds.gd" id="3_h1brf"]
+[ext_resource type="PackedScene" uid="uid://7mkj7yehqvvy" path="res://scenes/monster_spawn.tscn" id="4_qwlqn"]
+[ext_resource type="PackedScene" uid="uid://bvmsv5tkjs30e" path="res://scenes/monster.tscn" id="5_chssp"]
+[ext_resource type="PackedScene" uid="uid://rglpruewaxnf" path="res://scenes/speed_boost.tscn" id="6_chssp"]
+[ext_resource type="PackedScene" uid="uid://c4glp1vmpt1kj" path="res://scenes/pillar.tscn" id="7_3yqkj"]
 
 [node name="Level01" instance=ExtResource("1_cqs2m")]
 
 [node name="Background" type="Sprite2D" parent="." index="0"]
-position = Vector2(-250, -345)
-scale = Vector2(2, 2)
+texture_filter = 1
+position = Vector2(0.9999981, -9.536743e-07)
+scale = Vector2(0.3623047, 0.39746094)
 texture = ExtResource("2_6l0m3")
 centered = false
 
 [node name="Eve" parent="." index="2"]
-position = Vector2(290, 291)
+position = Vector2(162, 127)
 
-[node name="MonsterSpawn" parent="." index="3"]
-position = Vector2(384, 819)
-
-[node name="LevelBounds" type="StaticBody2D" parent="." index="6"]
+[node name="LevelBounds" type="StaticBody2D" parent="." index="5"]
 script = ExtResource("3_h1brf")
 background_path = NodePath("../Background")
-polygon_path = NodePath("CollisionPolygon2D")
 camera_path = NodePath("../Eve/CharacterBody2D/Camera2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelBounds" index="0"]
 position = Vector2(38, 122)
-polygon = PackedVector2Array(-149, 166, 137, -126, 949, -138, 1401, 116, 1620, 593, 1591, 714, 758, 869, 703, 1161, 1084, 1342, 753, 1420, 386, 1248, 208, 1109, -39, 928, -78, 756, 191, 633, 47, 350, -128, 177, -242, 333, -220, 1545, 1712, 1548, 1720, -434, -259, -437, -256, 330)
 
-[node name="Pillar" parent="GameObjects" index="1"]
-position = Vector2(219, 81)
+[node name="MonsterSpawn" parent="." index="6" instance=ExtResource("4_qwlqn")]
+position = Vector2(248, 161)
+
+[node name="Monster" parent="." index="7" instance=ExtResource("5_chssp")]
+position = Vector2(60, 124)
+
+[node name="Pillar" parent="." index="8" instance=ExtResource("7_3yqkj")]
+position = Vector2(109, 202)
+
+[node name="SpeedBoost" parent="." index="9" instance=ExtResource("6_chssp")]
+position = Vector2(197, 211)

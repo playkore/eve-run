@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var move_speed := 500.0
+@export var move_speed := 200.0
 @export var acceleration := 2200.0
 @export var deceleration := 2600.0
 
@@ -74,6 +74,7 @@ func _update_animation(is_moving: bool, direction: Vector2, is_boosting: bool) -
 		sprite.play(anim)
 
 func _direction_from_vector(vec: Vector2) -> String:
-	var angle = fposmod(vec.angle(), TAU)
+	# Godot's Y axis points down; flip Y so "north" maps correctly.
+	var angle = fposmod(Vector2(vec.x, -vec.y).angle(), TAU)
 	var index = int(round(angle / (TAU / 8.0))) % 8
 	return DIRECTION_NAMES[index]

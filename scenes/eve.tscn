@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" path="res://assets/eve/eve_frames.tres" id="2_5r3fr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8snfq"]
-radius = 8.062258
+radius = 13.0
 
 [node name="Eve" type="Node2D"]
 script = ExtResource("1_m0q0u")
@@ -15,7 +15,7 @@ script = ExtResource("1_m0q0u")
 shape = SubResource("CircleShape2D_8snfq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+texture_filter = 1
 sprite_frames = ExtResource("2_5r3fr")
 animation = &"idle_south"
 

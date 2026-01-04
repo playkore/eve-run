@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4glp1vmpt1kj"]
+[gd_scene load_steps=4 format=3 uid="uid://c4glp1vmpt1kj"]
 
-[ext_resource type="Script" path="res://scripts/pillar.gd" id="1_d2fcs"]
+[ext_resource type="Script" uid="uid://cvb84gtsh1did" path="res://scripts/pillar.gd" id="1_d2fcs"]
+[ext_resource type="Texture2D" uid="uid://dfvi21efew3l8" path="res://assets/spheres.png" id="2_01pxi"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yf8wg"]
-radius = 24.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_01pxi"]
+radius = 21.095022
 
 [node name="Pillar" type="StaticBody2D"]
 script = ExtResource("1_d2fcs")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_01pxi")
+hframes = 4
+frame = 1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_yf8wg")
+shape = SubResource("CircleShape2D_01pxi")

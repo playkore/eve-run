@@ -17,11 +17,15 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1080
-window/size/viewport_height=1920
+window/size/viewport_width=320
+window/size/viewport_height=640
 window/size/mode=2
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
 
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/2d/default_texture_filter="nearest"
+2d/snapping/use_pixel_snap=true
+2d/snapping/vertex_snapping=true

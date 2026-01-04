@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://7mkj7yehqvvy"]
 
-[ext_resource type="Texture2D" uid="uid://cyugmi0r6sny8" path="res://assets/monster-spawn.png" id="1_bxwoe"]
-[ext_resource type="Script" path="res://scripts/monster_spawn.gd" id="2_2w85l"]
+[ext_resource type="Script" uid="uid://d06yp1l3e4vus" path="res://scripts/monster_spawn.gd" id="2_2w85l"]
+[ext_resource type="Texture2D" uid="uid://dfvi21efew3l8" path="res://assets/spheres.png" id="2_eflij"]
 
 [node name="MonsterSpawn" type="Node2D"]
 script = ExtResource("2_2w85l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_bxwoe")
+texture_filter = 1
+texture = ExtResource("2_eflij")
+hframes = 4

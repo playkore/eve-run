@@ -83,7 +83,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3k7ef"]
-radius = 101.17806
+radius = 11.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w2yfe"]
 emission_shape = 2
@@ -101,6 +101,7 @@ scale_max = 1.2
 script = ExtResource("2_mn3r7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_ei7v0")
 frame_progress = 0.4593945
 

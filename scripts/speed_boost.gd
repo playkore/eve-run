@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var boost_distance := 100.0
-@export var boost_speed := 1000.0
+@export var boost_speed := 500.0
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)

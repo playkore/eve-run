@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://rglpruewaxnf"]
 
-[ext_resource type="Texture2D" uid="uid://cg1et1lumsacw" path="res://assets/energy-ball.png" id="1_7wd3c"]
 [ext_resource type="Script" uid="uid://bfpsh3hbxk2o0" path="res://scripts/speed_boost.gd" id="2_6v3c6"]
+[ext_resource type="Texture2D" uid="uid://dfvi21efew3l8" path="res://assets/spheres.png" id="2_rmo5g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dtnpr"]
-radius = 24.0
+radius = 25.0
 
 [node name="SpeedBoost" type="Area2D"]
 script = ExtResource("2_6v3c6")
@@ -13,5 +13,7 @@ script = ExtResource("2_6v3c6")
 shape = SubResource("CircleShape2D_dtnpr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_7wd3c")
+texture_filter = 1
+texture = ExtResource("2_rmo5g")
+hframes = 4
+frame = 2
